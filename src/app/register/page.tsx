@@ -42,7 +42,7 @@ export default function Home() {
         </Canvas>
     </div>
     <div className='sticky'>
-        <Navbar baseurl={process.env.NEXTAUTH_URL ?? 'localhost:3000'}/>
+        <Navbar baseurl={process.env.NEXTAUTH_URL ?? ''}/>
     </div>
     <div className="flex min-h-screen flex-col items-center justify-center">
         <div className="flex pb-10">

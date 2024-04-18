@@ -1,17 +1,20 @@
 "use client";
 import FAQ from '@/components/Faq';
 import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import Partners from '@/components/Partners';
 import RegisterButton from '@/components/RegisterButton';
 import SpaceParticles from '@/components/SpaceParticles';
+import Speakers from '@/components/Speakers';
+import Sponsors from '@/components/Sponsors';
 import Timeline from '@/components/Timeline';
 import { SessionProvider } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Canvas } from 'react-three-fiber';
-import Navbar from '../components/Navbar';
 
 
-const Home = () => {
+export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -67,13 +70,13 @@ const Home = () => {
           </div>
           </div>
       </div>
-      <div className='py-10'></div>
+      <div className='pt-10'></div>
       {/* //flex min-h-screen flex-col(row) items-center justify-center p-5 md:p-10 */}
       <div id="about" className={`${isMobile ? "flex min-h-screen flex-col items-center justify-center p-10 px-16" : "flex min-h-screen flex-row items-center justify-center p-5 md:p-10"} `}>
         {/*about*/}
         <div className="flex flex-col items-center">
         {/* text-3xl font-semibold text-left mb-8 pt-48 */}
-          <h1 className={`${isMobile ? "text-2xl md:text-3xl font-semibold text-center mb-4 md:mb-8 pt-20 md:pt-48": "text-3xl font-semibold text-left mb-8 pt-48 "}`}>
+          <h1 className={`${isMobile ? "text-2xl md:text-3xl font-semibold text-center mb-4 md:mb-8 pt-20 md:pt-48": "text-5xl font-semibold text-left mb-8 pt-48 "}`}>
             <code>Gathering Enthusiasts !</code>
           </h1>
            {/* items-start mx-auto pr-10 pt-10 */}
@@ -96,15 +99,22 @@ const Home = () => {
                 width={isMobile? 300: 600} //600
                 height={isMobile? 200: 500} //500
                 priority
-                className={`${isMobile ? 'pt-10' :'pt-44'}`}//10
+                className='pt-44'
               />
+        </div>
+      <div id="speakers" className="flex min-h-1/3 flex-col w-full justify-center px-16 py-4 hidden">
+        <Speakers />
       </div>
-      {/*p-20*/}
-      <div id="timeline" className={`${isMobile ? "flex min-h-screen flex-col items-center justify-between p-4": "flex min-h-screen flex-col items-center justify-between p-20"}`}> 
+      <div id="timeline" className="flex h-full flex-col items-center justify-between p-20">
         <Timeline />
       </div>
-      {/*p-20*/}
-      <div id="faq" className={`${isMobile ? "flex min-h-screen flex-col items-center justify-between p-10": "flex min-h-screen flex-col items-center justify-between p-20"}`}>
+      <div id="sponsors" className="flex h-full flex-col items-center justify-between">
+        <Sponsors />
+      </div>
+      <div id="partners" className="flex h-full flex-col items-center justify-between">
+        <Partners />
+      </div>
+      <div id="faq" className="flex min-h-screen flex-col items-center justify-between p-20">
         <FAQ />
       </div>
       <Footer/>
@@ -112,4 +122,3 @@ const Home = () => {
     </SessionProvider>
   );
 }
-export default Home;
