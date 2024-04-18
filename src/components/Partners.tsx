@@ -77,7 +77,7 @@ const Partners = () => {
       <div className='flex flex-row justify-center items-center'>
       <div className='px-10'>
         <Image
-          src="/CC.svg"
+          src="/CC.SVG"
           alt="cybercohesion"
           width={350}
           height={250}
